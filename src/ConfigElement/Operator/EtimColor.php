@@ -4,10 +4,8 @@ namespace OutputDataConfigToolkitBundle\ConfigElement\Operator;
 
 use JetBrains\PhpStorm\Pure;
 
-class Etim extends AbstractOperator
+class EtimColor extends AbstractOperator
 {
-    protected string $etimFeatureCode;
-
     /**
      * @param $config
      * @param $context
@@ -15,22 +13,27 @@ class Etim extends AbstractOperator
     #[Pure] public function __construct($config, $context = null)
     {
         parent::__construct($config, $context);
-
-        $this->attribute = 'etim';
-        $this->etimFeatureCode = $config->etimFeatureCode;
-        $this->context = $context;
+        $this->attribute = 'etimColor';
     }
 
     /**
-     * @param $object
+     * @param \CoreShop\Component\Core\Model\ProductInterface $object
      *
      * @return \stdClass
      */
-    #[Pure] public function getLabeledValue($object): \stdClass
+    public function getLabeledValue($object): \stdClass
     {
         $result = new \stdClass();
-        $result->value = $this->etimFeatureCode;
+        $result->value = $object->getEtimColor();
 
         return $result;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttribute(): string
+    {
+        return $this->attribute;
     }
 }

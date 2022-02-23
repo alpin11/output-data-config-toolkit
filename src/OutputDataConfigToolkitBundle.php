@@ -54,6 +54,7 @@ class OutputDataConfigToolkitBundle extends AbstractPimcoreBundle
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/value/Numeric.js',
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/Text.js',
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/Etim.js',
+            '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/EtimColor.js',
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/Group.js',
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/Concatenator.js',
             '/bundles/outputdataconfigtoolkit/js/outputDataConfigElements/operator/Table.js',
