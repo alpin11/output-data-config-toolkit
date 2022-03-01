@@ -3,10 +3,13 @@
 namespace OutputDataConfigToolkitBundle\ConfigElement\Operator;
 
 use JetBrains\PhpStorm\Pure;
+use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
 class Etim extends AbstractOperator
 {
-    protected string $etimFeatureCode;
+    public string $etimFeatureCode;
+
+    public array $etimFeature;
 
     /**
      * @param $config
@@ -28,8 +31,22 @@ class Etim extends AbstractOperator
      */
     #[Pure] public function getLabeledValue($object): \stdClass
     {
+        $keyConfig = null;
+
         $result = new \stdClass();
-        $result->value = $this->etimFeatureCode;
+        $result->value = null;
+        $result->object = null;
+        $result->etimFeatureCode = null;
+
+        $mapped = collect($object->getEtimMapped());
+        $etimFeature = $mapped->where('key', '=', $this->etimFeatureCode)->first();
+
+        if(is_array($etimFeature)) {
+            $result->value = $etimFeature['value'];
+            $result->object = $etimFeature;
+            $this->etimFeature = $etimFeature;
+            $result->etimFeatureCode = $this->etimFeatureCode;
+        }
 
         return $result;
     }
