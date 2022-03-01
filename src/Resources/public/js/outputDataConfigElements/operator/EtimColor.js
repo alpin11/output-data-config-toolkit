@@ -63,7 +63,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
             width: 400,
             height: 350,
             modal: true,
-            title: "ETIM",
+            title: "ETIM Farbe",
             layout: "fit",
             items: [this.configPanel]
         });
