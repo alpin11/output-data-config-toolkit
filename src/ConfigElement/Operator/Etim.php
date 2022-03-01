@@ -9,6 +9,8 @@ class Etim extends AbstractOperator
 {
     public string $etimFeatureCode;
 
+    public string $label;
+
     public array $etimFeature;
 
     /**
@@ -20,7 +22,8 @@ class Etim extends AbstractOperator
         parent::__construct($config, $context);
 
         $this->attribute = 'etim';
-        $this->etimFeatureCode = $config->etimFeatureCode;
+        $this->etimFeatureCode = $config->etimFeatureCode  ?? '';
+        $this->label = $config->label ?? '';
         $this->context = $context;
     }
 
@@ -35,6 +38,7 @@ class Etim extends AbstractOperator
 
         $result = new \stdClass();
         $result->value = '';
+        $result->label = '';
         $result->object = null;
         $result->etimFeatureCode = null;
 
@@ -44,6 +48,7 @@ class Etim extends AbstractOperator
         if(is_array($etimFeature)) {
             $result->value = $etimFeature['value'];
             $result->object = $etimFeature;
+            $result->label = $this->label;
             $this->etimFeature = $etimFeature;
             $result->etimFeatureCode = $this->etimFeatureCode;
         }
