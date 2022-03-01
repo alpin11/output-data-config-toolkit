@@ -34,7 +34,7 @@ class Etim extends AbstractOperator
         $keyConfig = null;
 
         $result = new \stdClass();
-        $result->value = null;
+        $result->value = '';
         $result->object = null;
         $result->etimFeatureCode = null;
 
