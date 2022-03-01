@@ -77,7 +77,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.Etim = 
         this.node = node;
 
         this.etimFeatureCode = new Ext.form.TextField({
-            fieldLabel: t('operator_etim_feature_code'),
+            fieldLabel: "ETIM Feature Code"
             length: 255,
             width: 200,
             value: this.node.data.configAttributes.etimFeatureCode
@@ -100,7 +100,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.Etim = 
             width: 400,
             height: 350,
             modal: true,
-            title: t('operator_etim_title'),
+            title: "ETIM",
             layout: "fit",
             items: [this.configPanel]
         });
