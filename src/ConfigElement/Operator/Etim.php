@@ -8,9 +8,7 @@ use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 class Etim extends AbstractOperator
 {
     public string $etimFeatureCode;
-
-    public string $label;
-
+    
     public array $etimFeature;
 
     /**
