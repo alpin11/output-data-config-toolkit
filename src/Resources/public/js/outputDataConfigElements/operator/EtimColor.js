@@ -11,7 +11,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
             var node = {
                 draggable: true,
                 iconCls: this.iconCls,
-                text: t(this.defaultText),
+                text: configAttributes.etimFeatureLabel,
                 configAttributes: configAttributes,
                 isTarget: true,
                 maxChildCount: 1,
@@ -36,6 +36,42 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
         return node;
     },
 
+    getConfigDialog: function(node) {
+        this.node = node;
+
+        this.etimFeatureLabel = new Ext.form.TextField({
+            fieldLabel: "ETIM Feature Label",
+            length: 255,
+            width: 200,
+            value: this.node.data.configAttributes.etimFeatureLabel
+        });
+
+        this.configPanel = new Ext.Panel({
+            layout: "form",
+            bodyStyle: "padding: 10px;",
+            items: [this.etimFeatureLabel],
+            buttons: [{
+                text: t("apply"),
+                iconCls: "pimcore_icon_apply",
+                handler: function () {
+                    this.commitData();
+                }.bind(this)
+            }]
+        });
+
+        this.window = new Ext.Window({
+            width: 400,
+            height: 350,
+            modal: true,
+            title: "ETIM",
+            layout: "fit",
+            items: [this.configPanel]
+        });
+
+        this.window.show();
+        return this.window;
+    },
+
     getCopyNode: function (source) {
         var copy = source.createNode({
             iconCls: this.iconCls,
@@ -54,9 +90,9 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
         return copy;
     },
 
-    getConfigDialog: function(node) {
-    },
-
     commitData: function() {
+        this.node.data.configAttributes.etimFeatureLabel = this.etimFeatureLabel.getValue();
+        this.node.set('text', this.etimFeatureLabel.getValue());
+        this.window.close();
     }
 });
