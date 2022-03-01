@@ -49,7 +49,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
         this.configPanel = new Ext.Panel({
             layout: "form",
             bodyStyle: "padding: 10px;",
-            items: [this.label],
+            items: [this.etimFeatureLabel],
             buttons: [{
                 text: t("apply"),
                 iconCls: "pimcore_icon_apply",
