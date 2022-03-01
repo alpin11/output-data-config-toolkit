@@ -8,7 +8,7 @@ use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 class Etim extends AbstractOperator
 {
     public string $etimFeatureCode;
-    
+
     public array $etimFeature;
 
     /**
@@ -21,7 +21,7 @@ class Etim extends AbstractOperator
 
         $this->attribute = 'etim';
         $this->etimFeatureCode = $config->etimFeatureCode  ?? '';
-        $this->label = $config->label ?? '';
+        $this->etimFeatureLabel = $config->etimFeatureLabel ?? '';
         $this->context = $context;
     }
 
@@ -37,6 +37,7 @@ class Etim extends AbstractOperator
         $result = new \stdClass();
         $result->value = '';
         $result->label = '';
+        $result->etimFeatureLabel = '';
         $result->object = null;
         $result->etimFeatureCode = null;
 
@@ -47,6 +48,7 @@ class Etim extends AbstractOperator
             $result->value = $etimFeature['value'];
             $result->object = $etimFeature;
             $result->label = $this->label;
+            $result->etimFeatureLabel = $this->etimFeatureLabel;
             $this->etimFeature = $etimFeature;
             $result->etimFeatureCode = $this->etimFeatureCode;
         }
