@@ -11,7 +11,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
             var node = {
                 draggable: true,
                 iconCls: this.iconCls,
-                text: configAttributes.label,
+                text: configAttributes.etimFeatureLabel,
                 configAttributes: configAttributes,
                 isTarget: true,
                 maxChildCount: 1,
@@ -39,7 +39,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
     getConfigDialog: function(node) {
         this.node = node;
 
-        this.label = new Ext.form.TextField({
+        this.etimFeatureLabel = new Ext.form.TextField({
             fieldLabel: "ETIM Feature Label",
             length: 255,
             width: 200,
@@ -91,8 +91,8 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.EtimCol
     },
 
     commitData: function() {
-        this.node.data.configAttributes.label = this.label.getValue();
-        this.node.set('text', this.label.getValue());
+        this.node.data.configAttributes.etimFeatureLabel = this.etimFeatureLabel.getValue();
+        this.node.set('text', this.etimFeatureLabel.getValue());
         this.window.close();
     }
 });
