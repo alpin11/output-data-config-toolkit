@@ -42,7 +42,7 @@ class Etim extends AbstractOperator
         $result->etimFeatureCode = null;
 
         $mapped = collect($object->getEtimMapped());
-        $etimFeature = $mapped->where('key', '=', $this->etimFeatureCode)->first();
+        $etimFeature = $mapped->where('key', '=', strtolower( $this->etimFeatureCode))->first();
 
         if(is_array($etimFeature)) {
             $result->value = $etimFeature['value'];
