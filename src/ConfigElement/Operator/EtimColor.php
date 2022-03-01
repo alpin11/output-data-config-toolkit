@@ -14,6 +14,7 @@ class EtimColor extends AbstractOperator
     {
         parent::__construct($config, $context);
         $this->attribute = 'etimColor';
+        $this->etimFeatureLabel = $config->etimFeatureLabel ?? '';
     }
 
     /**
