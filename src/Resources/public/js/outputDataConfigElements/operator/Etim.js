@@ -90,10 +90,17 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.Etim = 
             value: this.node.data.configAttributes.etimFeatureLabel
         });
 
+        this.etimFeatureLabelShort = new Ext.form.TextField({
+            fieldLabel: "Label (Abkürzung)",
+            length: 255,
+            width: 200,
+            value: this.node.data.configAttributes.etimFeatureLabelShort
+        });
+
         this.configPanel = new Ext.Panel({
             layout: "form",
             bodyStyle: "padding: 10px;",
-            items: [this.etimFeatureCode, this.etimFeatureLabel],
+            items: [this.etimFeatureCode, this.etimFeatureLabel, this.etimFeatureLabelShort],
             buttons: [{
                 text: t("apply"),
                 iconCls: "pimcore_icon_apply",
@@ -119,6 +126,7 @@ pimcore.bundle.outputDataConfigToolkit.outputDataConfigElements.operator.Etim = 
     commitData: function() {
         this.node.data.configAttributes.etimFeatureLabel = this.etimFeatureLabel.getValue();
         this.node.data.configAttributes.etimFeatureCode = this.etimFeatureCode.getValue();
+        this.node.data.configAttributes.etimFeatureLabelShort = this.etimFeatureLabelShort.getValue();
         this.node.set('text', this.etimFeatureCode.getValue());
         this.window.close();
     }
