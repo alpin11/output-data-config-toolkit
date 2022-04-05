@@ -38,6 +38,7 @@ class Etim extends AbstractOperator
         $result->value = '';
         $result->label = '';
         $result->etimFeatureLabel = '';
+        $result->etimFeatureLabelShort = '';
         $result->object = null;
         $result->etimFeatureCode = null;
 
@@ -49,6 +50,7 @@ class Etim extends AbstractOperator
             $result->object = $etimFeature;
             $result->label = $this->label;
             $result->etimFeatureLabel = $this->etimFeatureLabel;
+            $result->etimFeatureLabelShort = $this->etimFeatureLabelShort;
             $this->etimFeature = $etimFeature;
             $result->etimFeatureCode = $this->etimFeatureCode;
         }
