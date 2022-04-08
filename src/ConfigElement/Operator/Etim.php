@@ -9,6 +9,8 @@ class Etim extends AbstractOperator
 {
     public string $etimFeatureCode;
 
+    public string $etimFeatureLabelShort;
+
     public array $etimFeature;
 
     /**
@@ -22,6 +24,7 @@ class Etim extends AbstractOperator
         $this->attribute = 'etim';
         $this->etimFeatureCode = $config->etimFeatureCode  ?? '';
         $this->etimFeatureLabel = $config->etimFeatureLabel ?? '';
+        $this->etimFeatureLabelShort = $config->etimFeatureLabelShort ?? '';
         $this->context = $context;
     }
 
