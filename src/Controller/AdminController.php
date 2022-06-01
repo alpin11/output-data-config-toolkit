@@ -143,8 +143,12 @@ class AdminController extends \Pimcore\Bundle\AdminBundle\Controller\AdminContro
     public function resetOutputConfigAction(Request $request)
     {
         try {
+            \Pimcore\Cache\Runtime::clear();
             $config = OutputDefinition::getByID($request->get('config_id'));
-            $config->delete();
+            
+            if($config instanceof OutputDefinition) {
+                $config->delete();
+            }
 
             return $this->adminJson(['success' => true]);
         } catch (\Exception $e) {
