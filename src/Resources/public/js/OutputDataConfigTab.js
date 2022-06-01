@@ -118,11 +118,6 @@ pimcore.bundle.outputDataConfigToolkit.Tab = Class.create({
                 {
                     tooltip: t('reset'),
                     icon: "/bundles/pimcoreadmin/img/flat-color-icons/delete.svg",
-                    getClass: function(v, meta, rec) {  // Or return a class from a function
-                        if(rec.get('is_inherited') || this.object.id == 1) {
-                            return "pimcore_hidden";
-                        }
-                    }.bind(this),
                     handler: function (grid, rowIndex) {
                         var data = grid.getStore().getAt(rowIndex);
                         Ext.MessageBox.confirm(t('reset_outputdataconfig'), t('reset_outputdataconfig_text'), this.resetOutputDataConfig.bind(this, data.data.id), this);
